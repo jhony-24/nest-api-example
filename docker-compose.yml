@@ -1,0 +1,11 @@
+version: '3.1'
+
+services:
+  api:
+    container_name: nest-service-api
+    image: node-api
+    volumes:
+      - .:/usr/src/app
+    command: npm run start:dev
+    ports:
+      - 3000:3000
