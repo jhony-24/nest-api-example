@@ -1,0 +1,31 @@
+GET http://localhost:3000/posts
+
+###
+
+GET http://localhost:3000/posts/filter?query={code:2,information:[10,20]}
+
+
+###
+POST http://localhost:3000/accounts
+
+Content-Type: application/json
+{
+    "username" : "admin",
+    "fullName" : "admin - developer"
+}
+
+###
+POST http://localhost:3000/posts
+
+Content-Type: application/json
+{
+    "account" : {
+        "_id" : ""
+    },
+    "backgroundImage" : "https://cdn.pixabay.com/photo/2021/04/13/09/46/river-6175173__340.jpg",
+    "tags" : [
+        "world",
+        "travel"
+    ],
+    "content" : "Creating new pictures in the life"
+}

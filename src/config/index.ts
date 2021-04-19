@@ -1,1 +1,1 @@
-export const MONGO_URL = 'mongodb://localhost/devto';
+export const MONGO_URL = 'mongodb://localhost/access-posts';

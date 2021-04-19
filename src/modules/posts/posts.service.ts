@@ -14,12 +14,30 @@ export class PostsService {
     return this.postsModel.find().exec();
   }
 
+  async searchPosts(searchValue: string): Promise<Posts[]> {
+    return this.postsModel
+      .find({
+        $or: [
+          {
+            content: {
+              $regex: searchValue,
+              $options: 'i',
+            },
+            tags: {
+              $in: [searchValue],
+            },
+          },
+        ],
+      })
+      .exec();
+  }
+
   async getPostById(id: string): Promise<Posts> {
     return this.postsModel.findOne({ id }).exec();
   }
 
   async createNewPost(newPost: ICreateNewPost): Promise<Posts> {
     const createdPost = await this.postsModel.create(newPost);
-    return createdPost.save();
+    return createdPost;
   }
 }

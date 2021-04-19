@@ -1,1 +1,1 @@
-export default class ICreateNewPost {}
+export default interface ICreateNewPost {}
