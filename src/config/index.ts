@@ -1,1 +1,1 @@
-export const MONGO_URL = 'mongodb://localhost/access-posts';
+export const MONGO_URL = 'mongodb://mongodatabase/access-posts';

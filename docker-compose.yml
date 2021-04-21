@@ -3,9 +3,19 @@ version: '3.1'
 services:
   api:
     container_name: nest-service-api
-    image: node-api
+    restart: always
+    build: .
     volumes:
       - .:/usr/src/app
     command: npm run start:dev
     ports:
       - 3000:3000
+    links: 
+      - mongodatabase
+
+  mongodatabase:
+    container_name: mongo-database
+    image: mongo
+    ports: 
+      - 27017:27017
+    
